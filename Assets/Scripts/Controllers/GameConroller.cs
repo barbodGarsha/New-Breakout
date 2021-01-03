@@ -123,8 +123,8 @@ public class GameConroller : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Brick":
-                Destroy(collision.gameObject);
-                brick_destroyed();
+               // Destroy(collision.gameObject);
+                //brick_destroyed();
                 break;
             case "Floor":
                 ball_hit_floor();
