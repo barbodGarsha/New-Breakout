@@ -23,18 +23,21 @@ public class BrickScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (brick_data.type != BrickTypes.UNBREAKABLE)
+        if (collision.gameObject.tag == "Ball")
         {
-            if (lives > 0)
+            if (brick_data.type != BrickTypes.UNBREAKABLE)
             {
-                image_index++;
-                lives--;
-                sprite_renderer.sprite = brick_data.images[image_index];
-            }
-            else
-            {
-                //TODO:Telling the Level Controller that a it is destroyed and adding points
-                Destroy(gameObject);
+                if (lives > 0)
+                {
+                    image_index++;
+                    lives--;
+                    sprite_renderer.sprite = brick_data.images[image_index];
+                }
+                else
+                {
+                    //TODO:Telling the Level Controller that a it is destroyed and adding points
+                    Destroy(gameObject);
+                }
             }
         }
     }
